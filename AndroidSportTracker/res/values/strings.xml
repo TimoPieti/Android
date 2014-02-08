@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">AndroidSportTracker</string>
+    <string name="title_section2">Selected Activity</string>
+    <string name="title_section1">Activities</string>
+    <string name="activity_type">Type: </string>
+    <string name="activity_date">Date: </string>
+    <string name="activity_duration">Time: </string>
+    <string name="activity_distance">Distance: </string>
+    <string name="activity_speed">Speed: </string>
+    <string name="zero_distance">0.00 km</string>
+    <string name="zero_speed">0.00 km/h</string>
+    <string name="zero_duration">00:00:00</string>
+    
+    <string name="button_add">New activity</string>
+    <string name="button_proceed">Proceed</string>
+    <string name="button_start">Start</string>
+    <string name="button_pause">Pause</string>
+    <string name="button_continue">Continue</string>
+    <string name="button_cancel">Cancel</string>
+    <string name="button_save">Save</string>
+    <string name="button_delete">Delete</string>
+    <string name="button_back">Back</string>
+    
+    <string name="alert_title">Warning!</string>
+    <string name="alert_positive">OK</string>
+    <string name="alert_negative">Cancel</string>
+    <string name="alert_save">Do you really want to save and end your exercise?</string>
+    <string name="alert_cancel">Do you really want to end your exercise without saving?</string>
+    <string name="alert_delete">Do you really want to delete this exercise?</string>
+    
+    <string name="type_prompt">Choose a type: </string>
+    <string-array name="type_array">
+    	<item>Running</item>
+    	<item>Walking</item>
+    	<item>Cycling</item>
+    	<item>Swimming</item>
+    	<item>Skiing</item>
+    </string-array>
+
+</resources>

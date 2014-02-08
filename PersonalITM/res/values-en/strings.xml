@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">PersonalITM</string>
+    <string name="title_section3">Manage</string>
+    <string name="title_section2">Important</string>
+    <string name="title_section1">Tasks</string>
+    
+    
+    <string name="task_name">Task: </string>
+    <string name="task_priority">Priority: </string>
+    <string name="task_info">Info: </string>
+    <string name="task_time">Time: </string>
+    <string name="task_date">Date: </string>
+    <string name="tasks_list">Tasklist</string>
+    <string name="tasks_important">Important tasks</string>
+    <string name="tasks_manage">Task management</string>
+    <string name="hint_task">name of the task</string>
+    <string name="hint_info">additional info</string>
+    <string name="hint_day">dd</string>
+    <string name="hint_month">mm</string>
+    <string name="hint_year">yyyy</string>
+    <string name="hint_hour">hh</string>
+    <string name="hint_min">mm</string>
+    <string name="priority1">1 (High)</string>
+    <string name="priority2">2 (Middle)</string>
+    <string name="priority3">3 (Low)</string>
+    <string name="dot">.</string>
+    <string name="colon">:</string>
+    
+   	<string name="button_add">Add</string>
+   	<string name="button_save">Save</string>
+    <string name="button_delete">Delete</string>
+    <string name="button_deleteAll">Delete all</string>
+    <string name="button_clear">Clear</string>
+    
+    <string name="error_name">Give name to the task!</string>
+    <string name="note_add">Task added!</string>
+    <string name="note_update">Task updated!</string>
+    <string name="note_delete">Task deleted!</string>
+    <string name="note_deleteAll">All tasks deleted!</string>
+    <string name="note_time">Give valid time!</string>
+    <string name="note_date">Give valid date!</string>
+    <string name="note_old">Date is already gone!</string>
+    
+    
+    <string name="menu_settings">Settings</string>
+
+</resources>
