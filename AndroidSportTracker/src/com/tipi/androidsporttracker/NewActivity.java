@@ -3,13 +3,11 @@ package com.tipi.androidsporttracker;
 import java.util.ArrayList;
 import java.util.List;
 
-import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.SystemClock;
-import android.provider.Settings;
 import android.support.v4.app.FragmentActivity;
 import android.text.format.Time;
 import android.view.View;
@@ -17,11 +15,10 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
+import android.graphics.Color;
 import android.location.LocationListener;
 
 import com.google.android.gms.maps.SupportMapFragment;
@@ -56,8 +53,9 @@ public class NewActivity extends FragmentActivity implements LocationListener {
 	//map
 	private GoogleMap map;
     private LocationManager locationManager;
-    private Location previousLocation;
-    private String provider;
+    private static final long MIN_TIME = 400;
+    private static final float MIN_DISTANCE = 10;
+    Location previousLocation = null;
 	
     //timer
 	private long startTime = 0L;
@@ -91,8 +89,8 @@ public class NewActivity extends FragmentActivity implements LocationListener {
 					//change layout
 					RelativeLayout rel1 = (RelativeLayout) findViewById(R.id.layout1);
 					RelativeLayout rel2 = (RelativeLayout) findViewById(R.id.layout2);
-					rel1.setVisibility(1);
-					rel2.setVisibility(0);
+					rel1.setVisibility(View.INVISIBLE);
+					rel2.setVisibility(View.VISIBLE);
 					btnSave.setText(getResources().getString(R.string.button_save));
 					btnSave.setEnabled(false);
 					btnStart.setEnabled(true);
@@ -159,34 +157,10 @@ public class NewActivity extends FragmentActivity implements LocationListener {
 	
 		map = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map)).getMap();
         map.setMyLocationEnabled(true);
-        
-        //initialize location tracking
-        LocationManager service = (LocationManager) getSystemService(LOCATION_SERVICE);
-        boolean enabledGPS = service
-                .isProviderEnabled(LocationManager.GPS_PROVIDER);
-
-        //check if GPS is enabled
-        if (!enabledGPS) {
-            Toast.makeText(this, "GPS signal not found", Toast.LENGTH_LONG).show();
-            Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
-            startActivity(intent);
-        }
 
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-        Criteria criteria = new Criteria();
-        provider = locationManager.getBestProvider(criteria, false);
-        //get location
-        Location location = locationManager.getLastKnownLocation(provider);
-
-        if (location != null) {
-            onLocationChanged(location);
-        } else {
-        	double zero = 0.00;
-            lat.add(zero);
-            lon.add(zero);
-        }
-        
-		
+        locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER,
+        		MIN_TIME, MIN_DISTANCE, this);       
 
 	}
 	        
@@ -207,7 +181,7 @@ public class NewActivity extends FragmentActivity implements LocationListener {
 		
         AlertDialog.Builder builder = new AlertDialog.Builder(NewActivity.this);
         builder.setTitle(getResources().getString(R.string.alert_title));
-        if(saveAction = true) //check if user wants to save or cancel exercise
+        if(saveAction == true) //check if user wants to save or cancel exercise
         {
         	builder.setMessage(getResources().getString(R.string.alert_save));
         }
@@ -220,7 +194,7 @@ public class NewActivity extends FragmentActivity implements LocationListener {
 
             @Override
             public void onClick(DialogInterface arg0, int arg1) {
-                if(saveAction = true)
+                if(saveAction == true)
                 {
 					addExercise(); //save
                 	finish();
@@ -255,8 +229,20 @@ public class NewActivity extends FragmentActivity implements LocationListener {
 				averageSpeed = averageSpeed + speeds.get(i);
 			}
 			averageSpeed = averageSpeed / speeds.size();
-			}
-		speedTextView.setText(String.format("%02f", averageSpeed)+ " km/h");
+			speedTextView.setText(String.format("%02f", averageSpeed)+ " km/h");
+		}
+		
+		if(lat.size() == 0)
+		{
+			lat.add(65.0134);
+			lon.add(25.4672);
+		 /* lat.add(65.0245);
+	    	lat.add(65.0256);
+	    	lat.add(65.0256);
+	    	lon.add(25.4667);
+	    	lon.add(25.4699);
+	    	lon.add(25.4749); */
+		}
 		
 		dataSource.addExercise(headerTextView.getText().toString(),
 				distanceTextView.getText().toString(),           				
@@ -295,8 +281,8 @@ public class NewActivity extends FragmentActivity implements LocationListener {
     @Override
     protected void onResume() {
         super.onResume();
-        //start location trackign
-        locationManager.requestLocationUpdates(provider, 400, 1, this);
+        locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER,
+        		MIN_TIME, MIN_DISTANCE, this);   
     }
 	
 	//Timer
@@ -320,31 +306,34 @@ public class NewActivity extends FragmentActivity implements LocationListener {
     //function that handles tracking
 	@Override
 	public void onLocationChanged(Location location) {
-		double locationLat =  location.getLatitude();
-        double locationLon = location.getLongitude();
-        LatLng coordinate = new LatLng(locationLat, locationLon);
-        map.moveCamera(CameraUpdateFactory.newLatLngZoom(coordinate, 13));
-        if(tracking == true) //if tracking store data
-        {
-        	lat.add(locationLat);
-        	lon.add(locationLon);  
-        	//draw tracking line
-        	map.addPolyline(new PolylineOptions().geodesic(true).add(coordinate));
-        	if(previousLocation != null){
-        		//count distance
-        		distance = distance + previousLocation.distanceTo(location);
-        		distanceTextView.setText(String.format("%02f", distance)+ " km");        	
-        		speed = distance / duration; //count speed
-        		speeds.add(speed);
-        		speedTextView.setText(String.format("%02f", speed)+ " km/h");
-        		previousLocation = location;
-        	}
-        	else{
-        		previousLocation = location;
-        	}
-        }
-        
 		
+	    LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
+	    CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 13);
+	    map.animateCamera(cameraUpdate);
+	    locationManager.removeUpdates(this);
+	  
+
+	  if( tracking == true)
+	    {
+	    	lat.add(location.getLatitude());
+	    	lon.add(location.getLongitude());
+	    	map.addPolyline(new PolylineOptions()
+	    			.add(latLng, new LatLng(previousLocation.getLatitude(), 
+	    					previousLocation.getLongitude()))
+	    			.width(5)
+	                .color(Color.RED)
+	    			);
+	    	distance = distance + previousLocation.distanceTo(location);
+	    	distanceTextView.setText(String.format("%02f", distance)+ " km");        	
+	    	speed = distance / duration; //count speed
+	    	speeds.add(speed);
+	    	speedTextView.setText(String.format("%02f", speed)+ " km/h");
+	    	previousLocation = location;
+	    }
+	    else{
+	    	previousLocation = location;
+	    }
+	    	
 	}
 
 

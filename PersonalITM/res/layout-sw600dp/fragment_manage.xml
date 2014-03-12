@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+ 
+    <!-- HEADER -->
+    
+    <TextView android:id="@+id/tasks_manage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="50sp"
+        android:text="@string/tasks_manage"
+        android:padding="10dp"
+        />
+    
+    <!-- TASK NAME -->
+    
+    <EditText android:id="@+id/task_name"
+        android:layout_width="500dp"
+        android:layout_height="60dp"
+        android:layout_below="@+id/tasks_manage"
+        android:textSize="25sp"
+        android:hint="@string/hint_task"
+        android:padding="10dp"
+        />
+  
+    <!-- PRIORITY -->
+    
+        <TextView android:id="@+id/task_priority"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:layout_below="@+id/task_name"
+        android:text="@string/task_priority"
+        android:padding="15dp"
+        />
+    
+    <RadioGroup android:id="@+id/task_priority_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:layout_below="@+id/task_name"
+        android:layout_toRightOf="@+id/task_priority"
+        android:orientation="horizontal"
+        android:padding="5dp" >
+  
+        <RadioButton android:id="@+id/priority1"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:textSize="15sp" 
+        	android:text="@string/priority1"
+        	android:checked="true" />
+        
+        <RadioButton android:id="@+id/priority2"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:textSize="15sp" 
+        	android:text="@string/priority2"
+        	android:checked="false" />
+        
+        <RadioButton android:id="@+id/priority3"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:textSize="15sp" 
+        	android:text="@string/priority3"
+        	android:checked="false" />
+        
+    </RadioGroup>
+  
+    <!-- DATE -->
+    
+    <EditText android:id="@+id/task_day"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/task_priority_group"
+        android:textSize="15sp"
+        android:hint="@string/hint_day"
+        android:inputType="number"
+        android:maxLength="2"
+        android:padding="10dp"/>
+    
+    <TextView android:id="@+id/task_day_dot" 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/task_priority_group"
+        android:layout_toRightOf="@+id/task_day"
+        android:textSize="15sp"
+        android:text="@string/dot"
+        android:padding="20dp"/>
+    
+    <EditText android:id="@+id/task_month"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/task_priority_group"
+        android:layout_toRightOf="@+id/task_day_dot"
+        android:textSize="15sp"
+        android:hint="@string/hint_month"
+        android:inputType="number"
+        android:maxLength="2"
+        android:padding="10dp"/>
+    
+    <TextView android:id="@+id/task_month_dot" 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/task_priority_group"
+        android:layout_toRightOf="@+id/task_month"
+        android:textSize="15sp"
+        android:text="@string/dot"
+        android:padding="20dp"/>
+    
+	<EditText android:id="@+id/task_year"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/task_priority_group"
+        android:textSize="15sp"
+        android:layout_toRightOf="@+id/task_month_dot"
+        android:hint="@string/hint_year"
+        android:inputType="number"
+        android:maxLength="4"
+        android:padding="10dp"/>
+	
+	<!-- TIME -->
+	
+	    <EditText android:id="@+id/task_hours"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/task_day"
+        android:textSize="15sp"
+        android:hint="@string/hint_hour"
+        android:inputType="number"
+        android:maxLength="2"
+        android:padding="10dp"/>
+    
+    <TextView android:id="@+id/task_time_colon" 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/task_day"
+        android:layout_toRightOf="@+id/task_hours"
+        android:textSize="15sp"
+        android:text="@string/colon"
+        android:padding="20dp"/>
+    
+    <EditText android:id="@+id/task_mins"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/task_day"
+        android:layout_toRightOf="@+id/task_time_colon"
+        android:textSize="15sp"
+        android:hint="@string/hint_min"
+        android:inputType="number"
+        android:maxLength="2"
+        android:padding="10dp" />
+  
+    <!-- ADDITIONAL INFO -->
+    
+    <EditText android:id="@+id/task_info"
+        android:layout_width="500dp"
+        android:layout_height="60dp"
+        android:layout_below="@+id/task_hours"
+        android:textSize="15sp"
+        android:hint="@string/hint_info"
+        android:padding="10dp"
+        />
+ 
+    <!-- BUTTONS -->
+    
+    <Button android:id="@+id/button_Add"
+    	android:layout_width="120dp"
+        android:layout_height="60dp"
+        android:textSize="15sp"
+        android:layout_below="@+id/task_info"
+        android:text="@string/button_add"
+        android:padding="10dp" />      
+
+     <Button android:id="@+id/button_Clear"
+            android:layout_width="120dp"
+        	android:layout_height="60dp"
+        	android:textSize="15sp"
+        	android:layout_toRightOf="@+id/button_Add"
+        	android:layout_below="@+id/task_info"
+        	android:text="@string/button_clear"
+        	android:padding="10dp"
+            />
+    
+        
+    <Button android:id="@+id/button_Delete"
+            android:layout_width="120dp"
+        	android:layout_height="60dp"
+        	android:textSize="15sp"
+        	android:layout_toRightOf="@+id/button_Clear"
+        	android:layout_below="@+id/task_info"
+        	android:text="@string/button_delete"
+        	android:padding="10dp"
+            />
+    
+   <Button android:id="@+id/button_DeleteAll"
+            android:layout_width="120dp"
+        	android:layout_height="60dp"
+        	android:textSize="15sp"
+        	android:layout_toRightOf="@+id/button_Delete"
+        	android:layout_below="@+id/task_info"
+        	android:text="@string/button_deleteAll"
+        	android:padding="10dp"
+            />
+   
+   <!-- TASK LIST -->
+   
+      <ListView
+       android:id="@+id/tasklist2"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:textSize="25sp"
+       android:layout_below="@+id/button_Add" />
+            
+		
+</RelativeLayout>

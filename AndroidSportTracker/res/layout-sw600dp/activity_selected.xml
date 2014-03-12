@@ -6,12 +6,12 @@
     
     <RelativeLayout android:id="@+id/content2"
        android:layout_width="match_parent"
-       android:layout_height="410dp"> 
+       android:layout_height="740dp"> 
     
     	<fragment 
 		          android:id="@+id/map"
-		          android:layout_width="300dp"
-		          android:layout_height="250dp"
+		          android:layout_width="800dp"
+		          android:layout_height="500dp"
 		          android:layout_centerHorizontal="true"
 		          android:name="com.google.android.gms.maps.SupportMapFragment"/>
 		   
@@ -20,7 +20,7 @@
 	    		android:layout_height="wrap_content"
 	    		android:text="@string/type_prompt"
 	    		android:layout_below="@+id/map"
-        		android:textSize="12sp"
+        		android:textSize="25sp"
         		android:padding="20dp"/>
 		   
 		  <TextView  android:id="@+id/label_duration"  
@@ -28,7 +28,7 @@
 	    		android:layout_height="wrap_content"
 	    		android:text="@string/activity_duration"
 	    		android:layout_below="@+id/selected_header"
-        		android:textSize="12sp"
+        		android:textSize="20sp"
         		android:paddingLeft="20dp"/>
 		  
 
@@ -38,15 +38,15 @@
 	    		android:text="@string/zero_duration"
 	    		android:layout_below="@+id/selected_header"
 	    		android:layout_toRightOf="@+id/label_duration"
-        		android:textSize="12sp"
-        		android:paddingLeft="60dp" />
+        		android:textSize="20sp"
+        		android:paddingLeft="74dp" />
 		  
 		  <TextView  android:id="@+id/label_distance"  
 	           	android:layout_width="wrap_content"
 	    		android:layout_height="wrap_content"
 	    		android:text="@string/activity_distance"
 	    		android:layout_below="@+id/label_duration"
-        		android:textSize="12sp"
+        		android:textSize="20sp"
         		android:paddingLeft="20dp" />
 		  
 		  <TextView  android:id="@+id/distance"  
@@ -55,7 +55,7 @@
 	    		android:text="@string/zero_distance"
 	    		android:layout_below="@+id/label_duration"
 	    		android:layout_toRightOf="@+id/label_distance"
-        		android:textSize="12sp"
+        		android:textSize="20sp"
         		android:paddingLeft="40dp" />
 		  
 		  <TextView  android:id="@+id/label_speed"  
@@ -63,7 +63,7 @@
 	    		android:layout_height="wrap_content"
 	    		android:text="@string/activity_speed"
 	    		android:layout_below="@+id/label_distance"
-        		android:textSize="12sp"
+        		android:textSize="20sp"
         		android:paddingLeft="20dp" />
 		  
 		  <TextView android:id="@+id/speed"  
@@ -72,40 +72,39 @@
 	    		android:text="@string/zero_speed"
 	    		android:layout_below="@+id/label_distance"
 	    		android:layout_toRightOf="@+id/label_speed"
-        		android:textSize="12sp"
-        		android:paddingLeft="54dp" />
+        		android:textSize="20sp"
+        		android:paddingLeft="63dp" />
 		  
 		  </RelativeLayout>
 		  
        <RelativeLayout android:id="@+id/buttons2"
        android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_below="@+id/content2"
-    android:layout_marginBottom="10dp">
+    android:layout_below="@+id/content2">
 
 	   <Button
 	       android:id="@+id/button_Delete"
-	       android:layout_width="100dp"
-	       android:layout_height="wrap_content"
+	       android:layout_width="120dp"
+	       android:layout_height="60dp"
 	       android:layout_alignParentLeft="true"
 	       android:layout_alignParentTop="true"
-	       android:layout_marginLeft="50dp"
+	       android:layout_marginLeft="150dp"
 	       android:padding="10dp"
-	       android:paddingLeft="20dp"
+	       android:paddingLeft="80dp"
 	       android:text="@string/button_delete"
-	       android:textSize="12sp" />
+	       android:textSize="20sp" />
 
 	   <Button
 	       android:id="@+id/button_Back"
-	       android:layout_width="100dp"
-	       android:layout_height="wrap_content"
+	       android:layout_width="120dp"
+	       android:layout_height="60dp"
 	       android:layout_alignParentTop="true"
-	       android:layout_marginLeft="30dp"
+	       android:layout_marginLeft="50dp"
 	       android:layout_toRightOf="@+id/button_Delete"
 	       android:padding="10dp"
 	       android:paddingLeft="80dp"
 	       android:text="@string/button_back"
-	       android:textSize="12sp" />
+	       android:textSize="20sp" />
 	   
 	   </RelativeLayout>
 

@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.graphics.Color;
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
 
@@ -34,6 +35,7 @@ public class SelectedActivity extends FragmentActivity {
 	Exercise exercise;
 	
 	private GoogleMap map;
+	//private Polyline route;
 	
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -110,10 +112,13 @@ public class SelectedActivity extends FragmentActivity {
                 new LatLng(lat.get(0), lon.get(0)), 13));
 		
 		//draw route to map
-		for(int i = 0; i < lat.size(); i++)
+		for(int i = 0; i < lat.size() - 1; i++)
 		{
-		map.addPolyline(new PolylineOptions().geodesic(true)
-                .add(new LatLng(lat.get(i), lon.get(i)))  
+			map.addPolyline(new PolylineOptions()
+                .add(new LatLng(lat.get(i), lon.get(i)), 
+                		new LatLng(lat.get(i + 1), lon.get(i + 1)))
+                .width(5)
+                .color(Color.RED)
                 );
 		}
 	}

@@ -148,11 +148,11 @@ containing a value of this type.
         public static final int common_signin_btn_text_light=0x7f04000b;
     }
     public static final class dimen {
-        /**  Default screen margins, per the Android Design guidelines. 
-
+        /** 
          Customize dimensions originally defined in res/values/dimens.xml (such as
          screen margins) for sw720dp devices (e.g. 10" tablets) in landscape here.
     
+ Default screen margins, per the Android Design guidelines. 
          */
         public static final int activity_horizontal_margin=0x7f070000;
         public static final int activity_vertical_margin=0x7f070001;
@@ -191,32 +191,34 @@ containing a value of this type.
     public static final class id {
         public static final int activity_list=0x7f050005;
         public static final int button_Add=0x7f050006;
-        public static final int button_Back=0x7f05001b;
-        public static final int button_Cancel=0x7f050017;
-        public static final int button_Delete=0x7f05001a;
-        public static final int button_Save=0x7f050016;
-        public static final int button_Start=0x7f050015;
-        public static final int buttons=0x7f050014;
-        public static final int buttons2=0x7f050019;
-        public static final int content=0x7f050007;
-        public static final int content2=0x7f050018;
-        public static final int distance=0x7f050011;
-        public static final int duration=0x7f05000f;
+        public static final int button_Back=0x7f05001d;
+        public static final int button_Cancel=0x7f050019;
+        public static final int button_Delete=0x7f05001c;
+        public static final int button_DeleteAll=0x7f050007;
+        public static final int button_Save=0x7f050018;
+        public static final int button_Start=0x7f050017;
+        public static final int buttons2=0x7f05001b;
+        public static final int buttons_layout=0x7f050016;
+        public static final int content2=0x7f05001a;
+        public static final int content_layout=0x7f050008;
+        public static final int distance=0x7f050013;
+        public static final int duration=0x7f050011;
+        public static final int header=0x7f05000a;
         public static final int hybrid=0x7f050004;
-        public static final int label_distance=0x7f050010;
-        public static final int label_duration=0x7f05000e;
-        public static final int label_speed=0x7f050012;
-        public static final int layout1=0x7f050008;
-        public static final int layout2=0x7f05000b;
-        public static final int map=0x7f05000c;
+        public static final int label_distance=0x7f050012;
+        public static final int label_duration=0x7f050010;
+        public static final int label_speed=0x7f050014;
+        public static final int layout1=0x7f050009;
+        public static final int layout2=0x7f05000d;
+        public static final int map=0x7f05000e;
         public static final int none=0x7f050000;
         public static final int normal=0x7f050001;
         public static final int satellite=0x7f050002;
-        public static final int selected_header=0x7f05000d;
-        public static final int speed=0x7f050013;
+        public static final int selected_header=0x7f05000f;
+        public static final int speed=0x7f050015;
         public static final int terrain=0x7f050003;
-        public static final int type=0x7f050009;
-        public static final int type_spinner=0x7f05000a;
+        public static final int type=0x7f05000b;
+        public static final int type_spinner=0x7f05000c;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
@@ -232,12 +234,13 @@ containing a value of this type.
         public static final int activity_duration=0x7f06001e;
         public static final int activity_speed=0x7f060020;
         public static final int activity_type=0x7f06001c;
-        public static final int alert_cancel=0x7f060031;
-        public static final int alert_delete=0x7f060032;
-        public static final int alert_negative=0x7f06002f;
-        public static final int alert_positive=0x7f06002e;
-        public static final int alert_save=0x7f060030;
-        public static final int alert_title=0x7f06002d;
+        public static final int alert_cancel=0x7f060032;
+        public static final int alert_delete=0x7f060033;
+        public static final int alert_deleteAll=0x7f060034;
+        public static final int alert_negative=0x7f060030;
+        public static final int alert_positive=0x7f06002f;
+        public static final int alert_save=0x7f060031;
+        public static final int alert_title=0x7f06002e;
         public static final int app_name=0x7f060019;
         /**   Title for notification shown when GooglePlayServices needs to be
         enabled for a application to work. [CHAR LIMIT=70] 
@@ -263,10 +266,11 @@ containing a value of this type.
          */
         public static final int auth_client_using_bad_version_title=0x7f060013;
         public static final int button_add=0x7f060024;
-        public static final int button_back=0x7f06002c;
+        public static final int button_back=0x7f06002d;
         public static final int button_cancel=0x7f060029;
         public static final int button_continue=0x7f060028;
         public static final int button_delete=0x7f06002b;
+        public static final int button_deleteAll=0x7f06002c;
         public static final int button_pause=0x7f060027;
         public static final int button_proceed=0x7f060025;
         public static final int button_save=0x7f06002a;
@@ -338,24 +342,16 @@ containing a value of this type.
         /**  Long form sign-in button text [CHAR LIMIT=30] 
          */
         public static final int common_signin_button_text_long=0x7f060012;
+        public static final int header_new=0x7f060035;
         public static final int title_section1=0x7f06001b;
         public static final int title_section2=0x7f06001a;
-        public static final int type_prompt=0x7f060033;
+        public static final int type_prompt=0x7f060036;
         public static final int zero_distance=0x7f060021;
         public static final int zero_duration=0x7f060023;
         public static final int zero_speed=0x7f060022;
     }
     public static final class style {
         /** 
-        Base application theme, dependent on API level. This theme is replaced
-        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
-    
-
-            Theme customizations available in newer API levels can go in
-            res/values-vXX/styles.xml, while customizations related to
-            backward-compatibility can go here.
-        
-
         Base application theme for API 11+. This theme completely replaces
         AppBaseTheme from res/values/styles.xml on API 11+ devices.
     
@@ -366,6 +362,15 @@ containing a value of this type.
         res/values-v11/styles.xml on API 14+ devices.
     
  API 14 theme customizations can go here. 
+
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    
+
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        
          */
         public static final int AppBaseTheme=0x7f090000;
         /**  Application theme. 

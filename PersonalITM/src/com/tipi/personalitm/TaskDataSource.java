@@ -73,7 +73,7 @@ public class TaskDataSource {
 		values.put(MySQLiteHelper.TASK_INFO, info);
 		
 		database.update(MySQLiteHelper.TABLE_TASKS, values, 
-				MySQLiteHelper.TASK_ID+"="+id, null);
+				MySQLiteHelper.TASK_ID + " = " + id, null);
 		
 	}
 	
@@ -136,7 +136,7 @@ public class TaskDataSource {
 		
 		Task task = new Task();
 		
-		task.setId(cursor.getLong(0));
+		task.setId(cursor.getInt(0));
 		task.setName(cursor.getString(1));
 		task.setPriority(cursor.getString(2));
 		task.setDate(cursor.getString(3));

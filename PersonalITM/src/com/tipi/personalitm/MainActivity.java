@@ -12,6 +12,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.Menu;
+import android.view.Window;
 
 
 
@@ -32,12 +33,17 @@ public class MainActivity extends FragmentActivity implements
 	 * The {@link ViewPager} that will host the section contents.
 	 */
 	ViewPager mViewPager;
+	
+	FragmentTasks fragmentTasks;
 	FragmentImportant fragmentImportant;
+	FragmentManage fragmentManage;
 
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+
 		super.onCreate(savedInstanceState);
+		getWindow().requestFeature(Window.FEATURE_ACTION_BAR);
 		setContentView(R.layout.activity_main);
 
 		// Set up the action bar.
@@ -72,8 +78,9 @@ public class MainActivity extends FragmentActivity implements
 			// the TabListener interface, as the callback (listener) for when
 			// this tab is selected.
 			actionBar.addTab(actionBar.newTab()
-					.setText(mSectionsPagerAdapter.getPageTitle(i))
+					.setText(mSectionsPagerAdapter.getPageTitle(i))					
 					.setTabListener(this));
+			
 			
 		}
 	}
@@ -102,6 +109,7 @@ public class MainActivity extends FragmentActivity implements
 	@Override
 	public void onTabUnselected(ActionBar.Tab tab,
 			FragmentTransaction fragmentTransaction) {
+		
 	}
 
 	@Override
@@ -117,7 +125,9 @@ public class MainActivity extends FragmentActivity implements
 
 		public SectionsPagerAdapter(FragmentManager fm) {
 			super(fm);
+			fragmentTasks = new FragmentTasks();
 			fragmentImportant = new FragmentImportant();
+			fragmentManage = new FragmentManage();
 		}
 
 		@Override
@@ -125,11 +135,11 @@ public class MainActivity extends FragmentActivity implements
 			
 			switch (position) {
 			case 0:
-                return new FragmentTasks();
+                return fragmentTasks;
             case 1:
                 return fragmentImportant;
             case 2:
-                return new FragmentManage();
+                return fragmentManage;
  
             default:
                 return null;
@@ -156,6 +166,7 @@ public class MainActivity extends FragmentActivity implements
 			}
 			return null;
 		}
+		
 	}	
 	
 }

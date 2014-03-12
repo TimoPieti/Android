@@ -121,6 +121,7 @@ public class FragmentManage extends Fragment {
 				taskYearText.setText("");
 				taskHoursText.setText("");
 				taskMinsText.setText("");
+				selectedItem = 0;
 		        btnAdd.setText(getResources().getString(R.string.button_add));
 		        setRadioButtons(1);
 			}
@@ -186,7 +187,8 @@ public class FragmentManage extends Fragment {
 		        selectedItem = position+1;
 		        
 		        //haetaan tehtävä ja asetetaan nimi ja lisätiedot
-				Task task = dataSource.getTask(selectedItem);	       
+				Task task = dataSource.getTask(selectedItem);
+				selectedItem = task.getId();
 		        taskNameText.setText(task.getName());
 		        taskInfoText.setText(task.getInfo());
 		        

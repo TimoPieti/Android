@@ -11,32 +11,32 @@
   	<ListView
        android:id="@+id/activity_list"
        android:layout_width="match_parent"
-       android:layout_height="400dp"
-       android:textSize="15sp"
+       android:layout_height="740dp"
+       android:textSize="25sp"
        android:paddingLeft="5dp" />
 
    
 
    <Button android:id="@+id/button_Add"
-    	android:layout_width="120dp"
-        android:layout_height="40dp"
-        android:layout_marginLeft="30dp"
-        android:textSize="12sp"
+    	android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_marginLeft="70dp"
+        android:textSize="20sp"
         android:text="@string/button_add"
         android:layout_below="@+id/activity_list"
         android:padding="10dp" /> 
         
-      	   <Button
+   	   <Button
 	       android:id="@+id/button_DeleteAll"
-	       android:layout_width="120dp"
-	       android:layout_height="40dp"
+	       android:layout_width="200dp"
+	       android:layout_height="60dp"
 	       android:layout_alignParentLeft="true"
-	       android:layout_marginLeft="150dp"
+	       android:layout_marginLeft="300dp"
 	       android:layout_toRightOf="@+id/button_Add"
 	       android:layout_below="@+id/activity_list"
 	       android:padding="10dp"
 	       android:paddingLeft="80dp"
 	       android:text="@string/button_deleteAll"
-	       android:textSize="12sp" />
+	       android:textSize="20sp" />
 
 </RelativeLayout>

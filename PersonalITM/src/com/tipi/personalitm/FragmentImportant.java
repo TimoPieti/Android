@@ -49,7 +49,7 @@ public class FragmentImportant extends Fragment {
     public void onResume() {
     	super.onResume();
     	
-		dataSource = new TaskDataSource(this.getActivity());
+    	dataSource = new TaskDataSource(this.getActivity());
 		dataSource.open();
         
 		//luodaan uusi tehtävälista ja laitetaan ne tärkeysjärjestykseen
@@ -60,7 +60,7 @@ public class FragmentImportant extends Fragment {
         		findViewById(R.id.gridview);
         if(priorityList.size() != 0) {
         	gridView.setAdapter(new ImageAdapter(getActivity(), priorityList)); 
-        }
+        } 
     	
     }
 	

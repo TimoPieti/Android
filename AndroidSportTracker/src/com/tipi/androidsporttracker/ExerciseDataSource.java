@@ -11,6 +11,7 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+
 import java.lang.reflect.Type;
 
 public class ExerciseDataSource {
@@ -77,6 +78,10 @@ public class ExerciseDataSource {
 		database.delete(MySQLiteHelper.TABLE_EXERCISES,
 				MySQLiteHelper.EXERCISE_ID + " = " + id, null);
 		
+	}
+	
+	public void deleteAllExercises() {
+		database.delete(MySQLiteHelper.TABLE_EXERCISES, null, null);
 	}
 
 	
